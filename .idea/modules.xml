@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Devicom.iml" filepath="$PROJECT_DIR$/Devicom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DevicomAndroid.iml" filepath="$PROJECT_DIR$/DevicomAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

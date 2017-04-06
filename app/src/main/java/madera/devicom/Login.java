@@ -1,24 +1,19 @@
 package madera.devicom;
 
-/**
- * Created by vince on 03/04/2017.
- */
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.util.Log;
 import android.widget.Toast;
 
 public class Login extends Activity {
+
+    HttpRequest request = new HttpRequest();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +30,7 @@ public class Login extends Activity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(Login.this, "Identifiants invalides", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "TODO feature", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -44,19 +39,32 @@ public class Login extends Activity {
 
             @Override
             public void onClick(View v) {
-                TextView uservalue = (TextView) findViewById(R.id.username);
-                String username = uservalue.getText().toString();
 
-                TextView passvalue = (TextView) findViewById(R.id.password);
-                String password = passvalue.getText().toString();
+            TextView uservalue = (TextView) findViewById(R.id.username);
+            String username = uservalue.getText().toString();
+            TextView passvalue = (TextView) findViewById(R.id.password);
+            String password = passvalue.getText().toString();
 
-                /*if (username == "root" && password == "toor") {
-                    startActivity(new Intent(Login.this, NewClient.class));
-                } else {
-                    Toast.makeText(SearchClient.this, "Identifiants invalides", Toast.LENGTH_SHORT).show();
-                }*/
 
-                startActivity(new Intent(Login.this, SideMenu.class));
+                String chain = "http://localhost:8000/api/";
+
+                try {
+                    String response = request.get(chain);
+                    TextView vresponse = (TextView) findViewById(R.id.response);
+                    vresponse.setText(response);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+
+
+
+
+
+            //if(username.equals("root") && password.equals("toor")){
+                //startActivity(new Intent(Login.this, MainMenu.class));
+            /*} else {
+                Toast.makeText(Login.this, "Identifiants invalides", Toast.LENGTH_SHORT).show();
+            }*/
             }
         });
     }

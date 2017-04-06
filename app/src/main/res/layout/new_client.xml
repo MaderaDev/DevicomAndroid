@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
 
-    <ScrollView
+    <RelativeLayout
         android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_marginLeft="25dp"
-                    android:text="New client"
+                    android:text="Nouveau client"
                     android:textColor="#ffffff"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -80,8 +80,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:focusableInTouchMode="true">
+                        android:focusableInTouchMode="true"
+                        android:orientation="vertical">
 
                         <RadioButton
                             android:id="@+id/radioButton2"
@@ -131,7 +131,7 @@
                             android:paddingLeft="5dp" />
 
                         <EditText
-                            android:id="@+id/tel"
+                            android:id="@+id/phone"
                             android:layout_width="fill_parent"
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
@@ -160,7 +160,7 @@
                             android:hint="J'autorise Madera à m'envoyer des offres commerciales et le catalogue de nouveautés sur mon adresse e-mail" />
 
                         <EditText
-                            android:id="@+id/adresse"
+                            android:id="@+id/address"
                             android:layout_width="fill_parent"
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
@@ -182,7 +182,7 @@
                             android:paddingLeft="5dp" />
 
                         <EditText
-                            android:id="@+id/ville"
+                            android:id="@+id/city"
                             android:layout_width="fill_parent"
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
@@ -198,9 +198,9 @@
                             android:layout_width="190dp"
                             android:layout_height="38dp"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="30dp"
                             android:background="#13b586"
-                            android:text="submit"
+                            android:text="Enregistrer"
                             android:textColor="#fff"
                             android:textSize="13dp" />
 
@@ -212,6 +212,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </RelativeLayout>
 
 </LinearLayout>

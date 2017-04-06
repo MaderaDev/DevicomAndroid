@@ -77,23 +77,33 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="30dp"
                     android:hint="Devis : #265"
+                    android:textColor="#000000"
                     android:paddingLeft="5dp" />
 
                 <LinearLayout
-                    android:layout_width="672dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_weight="0.12">
+                    android:layout_weight="0.08"
+                    android:orientation="horizontal">
 
-
-                    <!-- Right side spacer -->
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0.65"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/text1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Date de création"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/datec"
@@ -101,10 +111,22 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="0dp"
                             android:background="#f3f3f3"
                             android:hint="Date de création"
                             android:paddingLeft="5dp" />
+
+                        <TextView
+                            android:id="@+id/text2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Dernière date de modification"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/dateu"
@@ -112,10 +134,23 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
+                            android:layout_marginTop="0dp"
                             android:background="#f3f3f3"
                             android:hint="Dernière date de modification"
                             android:paddingLeft="5dp" />
+
+
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Client associé"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/customer"
@@ -123,30 +158,251 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
-                            android:hint="Client"
+                            android:hint="Aucun"
                             android:paddingLeft="5dp" />
 
 
-                        <Button
-                            android:id="@+id/submit"
-                            android:layout_width="190dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center_horizontal"
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
                             android:layout_marginTop="30dp"
-                            android:background="#13b586"
-                            android:text="Continuer"
-                            android:textColor="#fff"
-                            android:textSize="13dp" />
+                            android:layout_weight="0.08"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.37"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:layout_marginLeft="30dp"
+                                    android:id="@+id/submit"
+                                    android:layout_width="200dp"
+                                    android:layout_height="40dp"
+                                    android:background="#13b586"
+                                    android:text="Enregistrer"
+                                    android:textColor="#fff"
+                                    android:textSize="13dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="0.36"
+                                android:orientation="vertical"
+                                android:weightSum="1">
+
+                                <Button
+                                    android:layout_marginRight="30dp"
+                                    android:id="@+id/cancel"
+                                    android:layout_width="200dp"
+                                    android:layout_height="40dp"
+                                    android:background="#13b586"
+                                    android:text="Annuler"
+                                    android:textColor="#fff"
+                                    android:textSize="13dp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.94"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/gamme"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Gamme sélectionnée"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.08"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.74"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/sgamme"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="#f3f3f3"
+                                    android:hint="Aucune"
+                                    android:paddingLeft="5dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="0.36"
+                                android:orientation="vertical"
+                                android:weightSum="1">
+
+                                <Button
+                                    android:id="@+id/selectgamme"
+                                    android:layout_width="190dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:background="#13b586"
+                                    android:text="Gammes"
+                                    android:textColor="#fff"
+                                    android:textSize="13dp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/ligne"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Ligne de produit sélectionnée"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.08"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.74"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/sprod"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="#f3f3f3"
+                                    android:hint="Aucune"
+                                    android:paddingLeft="5dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="0.36"
+                                android:orientation="vertical"
+                                android:weightSum="1">
+
+                                <Button
+                                    android:id="@+id/selectprod"
+                                    android:layout_width="190dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:background="#13b586"
+                                    android:text="Lignes de produit"
+                                    android:textColor="#fff"
+                                    android:textSize="13dp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/ref"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Référence sélectionnée"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.08"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.74"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/sref"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="#f3f3f3"
+                                    android:hint="Aucune"
+                                    android:paddingLeft="5dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="0.36"
+                                android:orientation="vertical"
+                                android:weightSum="1">
+
+                                <Button
+                                    android:id="@+id/selectref"
+                                    android:layout_width="190dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:background="#13b586"
+                                    android:text="Références"
+                                    android:textColor="#fff"
+                                    android:textSize="13dp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
-
             </LinearLayout>
-
         </LinearLayout>
 
     </RelativeLayout>

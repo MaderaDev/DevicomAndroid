@@ -1,4 +1,4 @@
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView1"
@@ -9,7 +9,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#ffffff"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -69,6 +71,7 @@
                 android:layout_marginTop="30dp"
                 android:background="#f3f3f3"
                 android:hint="Username"
+                android:singleLine="true"
                 android:paddingLeft="5dp" />
 
             <EditText
@@ -78,6 +81,7 @@
                 android:layout_marginTop="15dp"
                 android:background="#f3f3f3"
                 android:hint="password"
+                android:inputType="textPassword"
                 android:paddingLeft="5dp" />
 
 
@@ -112,6 +116,17 @@
                 android:textColor="#fff"
                 android:textSize="13dp" />
 
+            <EditText
+                android:id="@+id/response"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="0dp"
+                android:background="#f3f3f3"
+                android:hint="response"
+                android:paddingLeft="5dp" />
+
 
         </LinearLayout>
 
@@ -120,4 +135,4 @@
 
 
 
-</ScrollView>
+</RelativeLayout>
