@@ -1,5 +1,6 @@
 package madera.devicom;
 
+<<<<<<< HEAD
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -95,4 +96,11 @@ public class HttpRequest extends AsyncTask {
     protected Object doInBackground(Object requestype) {
         return requestype;
     }
+=======
+/**
+ * Created by vince on 06/04/2017.
+ */
+
+public class HttpRequest {
+>>>>>>> c7d9809d67111bb20e01fc9f2205cde03561a922
 }

@@ -1,5 +1,6 @@
 package madera.devicom;
 
+<<<<<<< HEAD
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,4 +62,11 @@ public class MainMenu extends Activity {
             }
         });
     }
+=======
+/**
+ * Created by vince on 05/04/2017.
+ */
+
+public class MainMenu {
+>>>>>>> c7d9809d67111bb20e01fc9f2205cde03561a922
 }

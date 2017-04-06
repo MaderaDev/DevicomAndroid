@@ -1,5 +1,6 @@
 package madera.devicom;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 public class Devis {
@@ -40,4 +41,11 @@ public class Devis {
         this.reference = ref;
     }
 
+=======
+/**
+ * Created by vince on 05/04/2017.
+ */
+
+public class Devis {
+>>>>>>> c7d9809d67111bb20e01fc9f2205cde03561a922
 }
