@@ -1,6 +1,7 @@
 package madera.devicom;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 
 public class Login extends Activity {
 
-    HttpRequest request = new HttpRequest();
+    //ApiRequest request = new ApiRequest();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +49,23 @@ public class Login extends Activity {
 
                 String chain = "http://localhost:8000/api/";
 
-                try {
+                /*try {
                     String response = request.get(chain);
                     TextView vresponse = (TextView) findViewById(R.id.response);
                     vresponse.setText(response);
                 } catch (Exception exception) {
                     exception.printStackTrace();
-                }
+                }*/
 
 
 
 
 
-            //if(username.equals("root") && password.equals("toor")){
-                //startActivity(new Intent(Login.this, MainMenu.class));
-            /*} else {
+            if(username.equals("") && password.equals("")){
+                startActivity(new Intent(Login.this, MainMenu.class));
+            } else {
                 Toast.makeText(Login.this, "Identifiants invalides", Toast.LENGTH_SHORT).show();
-            }*/
+            }
             }
         });
     }

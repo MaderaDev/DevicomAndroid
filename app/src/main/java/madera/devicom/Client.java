@@ -1,7 +1,5 @@
 package madera.devicom;
 
-<<<<<<< HEAD
-
 public class Client {
 
     public String surname;
@@ -21,12 +19,4 @@ public class Client {
         this.postalCode = postalCode;
         this.city = city;
     }
-
-=======
-/**
- * Created by vince on 05/04/2017.
- */
-
-public class Client {
->>>>>>> c7d9809d67111bb20e01fc9f2205cde03561a922
 }

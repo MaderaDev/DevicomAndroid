@@ -46,7 +46,10 @@
             android:label="@string/app_name">
         </activity>
 
-
+        <activity
+            android:name=".Synchronisation"
+            android:label="@string/app_name" >
+        </activity>
 
 
 
