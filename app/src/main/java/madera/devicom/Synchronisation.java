@@ -2,10 +2,8 @@ package madera.devicom;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,29 +23,30 @@ public class Synchronisation extends AppCompatActivity implements FetchDataFromA
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.synchronisation);
 
-        responseView = (TextView) findViewById(R.id.responseView);
-        emailText = (EditText) findViewById(R.id.emailText);
 
-        Button queryButton = (Button) findViewById(R.id.queryButton);
+        TextView online = (TextView)findViewById(R.id.online);
+        online.setText("Connecté à Madera");
 
-        new ApiRequest(responseView, "client", "", this).execute();
+        // TODO: cette vérification ne fonctionne pas !!
+        try {
+            new ApiRequest(this, "").execute();
+        } catch (Exception e) {
+            online.setText("Connection à Madera impossible");
+            online.setTextColor(Integer.parseInt("#ff0000"));
+        }
 
-
-        queryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //new ApiRequest(responseView, "client", "", this).execute();
-            }
-        });
-
+        new ApiRequest(this, "").execute();
     }
 
-    public void fetchDataCallback(String result) {
+    public void fetchDataCallback(int code, String result) {
         data = result;
         renderData();
     }
 
     private void renderData(){
+        if (data == "") {
+            data = "Impossible de joindre le serveur de Madera";
+        }
         responseView.setText(data);
     }
 }

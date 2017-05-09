@@ -2,7 +2,6 @@ package madera.devicom;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,35 +11,32 @@ import java.net.URL;
 
 public class ApiRequest extends AsyncTask<Void, Void, String> {
 
-    private Exception exception;
-    TextView responseView;
+    //private String apiUrl = "http://10.0.2.2:8000/api/";
+    private String apiUrl = "http://192.168.43.6:8000/api/";
+
     String apiDestination;
-    String valueSearched;
     FetchDataFromApi callbackInterface;
+    int responseCode;
 
-    ApiRequest(TextView responseView, String apiDestination, String valueSearched, FetchDataFromApi callbackInterface) {
-        this.responseView = responseView;
+    ApiRequest(FetchDataFromApi callbackInterface, String apiDestination) {
         this.apiDestination = apiDestination;
-        this.valueSearched = valueSearched;
-
         this.callbackInterface = callbackInterface;
 
     }
 
 
-    protected void onPreExecute() {
-        responseView.setText("");
-    }
+    protected void onPreExecute() { }
 
     @Override
     protected String doInBackground(Void... urls) {
 
         try {
             //10.0.2.2 because of android emulator
-            URL url = new URL("http://10.0.2.2:8000/api/" + apiDestination);
+            URL url = new URL(this.apiUrl + apiDestination);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                responseCode = urlConnection.getResponseCode();
                 StringBuilder stringBuilder = new StringBuilder();
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
@@ -61,8 +57,8 @@ public class ApiRequest extends AsyncTask<Void, Void, String> {
         if (response == null) {
             response = "Response is null";
         }
-        Log.i("INFO", response);
-        this.callbackInterface.fetchDataCallback(response);
+        //Log.i("INFO", response);
+        this.callbackInterface.fetchDataCallback(responseCode, response);
 
         /*try {
             JSONObject object = (JSONObject) new JSONTokener(response).nextValue();

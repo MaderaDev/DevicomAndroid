@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainMenu extends Activity {
 
@@ -21,7 +21,7 @@ public class MainMenu extends Activity {
         setContentView(R.layout.main_menu);
 
 
-        Button searchcust = (Button)findViewById(R.id.searchcust);
+        LinearLayout searchcust = (LinearLayout) findViewById(R.id.searchcust);
         searchcust.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +29,7 @@ public class MainMenu extends Activity {
             }
         });
 
-        Button createcust = (Button)findViewById(R.id.createcust);
+        LinearLayout createcust = (LinearLayout) findViewById(R.id.createcust);
         createcust.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +37,7 @@ public class MainMenu extends Activity {
             }
         });
 
-        Button searchdev = (Button)findViewById(R.id.searchdev);
+        LinearLayout searchdev = (LinearLayout) findViewById(R.id.searchdev);
         searchdev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +45,7 @@ public class MainMenu extends Activity {
             }
         });
 
-        Button createdev = (Button)findViewById(R.id.createdev);
+        LinearLayout createdev = (LinearLayout) findViewById(R.id.createdev);
         createdev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +53,7 @@ public class MainMenu extends Activity {
             }
         });
 
-        Button sync = (Button)findViewById(R.id.sync);
+        LinearLayout sync = (LinearLayout) findViewById(R.id.sync);
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

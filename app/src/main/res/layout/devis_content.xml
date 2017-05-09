@@ -23,7 +23,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
                 android:layout_alignParentTop="true"
-                android:background="#13b586"
+                android:background="@color/colorPrimary"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -48,6 +48,8 @@
                     android:layout_height="48dp"
                     android:gravity="right"
                     android:orientation="horizontal">
+
+
 
                 </LinearLayout>
             </LinearLayout>
@@ -166,7 +168,7 @@
                             android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="30dp"
-                            android:background="#13b586"
+                            android:background="@color/colorPrimary"
                             android:text="Continuer"
                             android:textColor="#fff"
                             android:textSize="13dp" />

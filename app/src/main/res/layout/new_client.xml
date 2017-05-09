@@ -8,20 +8,22 @@
     <RelativeLayout
         android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:background="#ffffff">
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
                 android:layout_alignParentTop="true"
-                android:background="#13b586"
+                android:background="@color/colorPrimary"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -59,17 +61,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_weight="3.65"
                 android:background="@drawable/greybackground"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical"
                 android:weightSum="1">
 
+                <EditText
+                    android:id="@+id/iddevis"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="30dp"
+                    android:hint="Client : Nouveau"
+                    android:textColor="#000000"
+                    android:paddingLeft="5dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -83,19 +94,42 @@
                         android:focusableInTouchMode="true"
                         android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/radioButton2"
+                        <RadioGroup
+                            android:id="@+id/radiogroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
-                            android:text="Madame" />
+                            android:layout_weight="1"
+                            android:focusableInTouchMode="true"
+                            android:orientation="horizontal">
 
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            <RadioButton
+                                android:id="@+id/madame"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:buttonTint="#000"
+                                android:text="Madame" />
+
+                            <RadioButton
+                                android:id="@+id/monsieur"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:buttonTint="#000"
+                                android:text="Monsieur" />
+
+                            </RadioGroup>
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
                             android:layout_marginLeft="30dp"
-                            android:text="Monsieur" />
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="Prénom"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/surname"
@@ -103,10 +137,20 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="Prénom"
                             android:paddingLeft="5dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="Nom"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/name"
@@ -114,10 +158,20 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="Nom"
                             android:paddingLeft="5dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="E-Mail"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/email"
@@ -125,10 +179,20 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="E-Mail"
                             android:paddingLeft="5dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="Téléphone"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/phone"
@@ -136,7 +200,6 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="Téléphone"
                             android:paddingLeft="5dp" />
@@ -159,16 +222,37 @@
                             android:layout_marginTop="30dp"
                             android:hint="J'autorise Madera à m'envoyer des offres commerciales et le catalogue de nouveautés sur mon adresse e-mail" />
 
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="Adresse"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
                         <EditText
                             android:id="@+id/address"
                             android:layout_width="fill_parent"
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="Adresse"
                             android:paddingLeft="5dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="Code Postal"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/postal"
@@ -176,10 +260,20 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="Code postal"
                             android:paddingLeft="5dp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:text="Ville"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/city"
@@ -187,7 +281,6 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:background="#f3f3f3"
                             android:hint="Ville"
                             android:paddingLeft="5dp" />
@@ -199,12 +292,38 @@
                             android:layout_height="38dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="30dp"
-                            android:background="#13b586"
+                            android:background="@color/colorPrimary"
                             android:text="Enregistrer"
                             android:textColor="#fff"
                             android:textSize="13dp" />
 
                     </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/linked_devis"
+                        android:layout_width="fill_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_vertical"
+                        android:text="Devis associés"
+                        android:textColor="#000000"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <ListView
+                        android:id="@+id/found_list"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:drawSelectorOnTop="false"
+                        />
 
                 </LinearLayout>
 

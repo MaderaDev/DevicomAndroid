@@ -17,33 +17,38 @@
             android:layout_width="fill_parent"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
-            android:background="#13b586"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/app_icon" />
+                android:background="@drawable/ic_launcher" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="25dp"
-                android:text="Menu"
+                android:text="Déconnection"
                 android:textColor="#ffffff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="48dp"
-                android:gravity="right"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/currentview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="450dp"
+                android:text="Menu principal"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            </LinearLayout>
+
         </LinearLayout>
 
 
@@ -68,100 +73,183 @@
                 android:background="@drawable/logo" />
 
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:focusableInTouchMode="true"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/searchcust"
-                    android:layout_width="@dimen/main_menu_buttons_width"
-                    android:layout_height="@dimen/main_menu_buttons_height"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/main_menu_buttons_margintop"
-                    android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
-                    android:background="#13b586"
-                    android:text="Chercher un client"
-                    android:textColor="#fff"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:focusableInTouchMode="true"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/searchdev"
-                    android:layout_width="@dimen/main_menu_buttons_width"
-                    android:layout_height="@dimen/main_menu_buttons_height"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/main_menu_buttons_margintop"
-                    android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
-                    android:background="#13b586"
-                    android:text="Chercher un devis"
-                    android:textColor="#fff"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/main_menu_hlayout_width"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:focusableInTouchMode="true"
                     android:orientation="vertical">
 
-                    <Button
+                    <LinearLayout
+                        android:id="@+id/searchcust"
+                        android:layout_width="@dimen/main_menu_buttons_width"
+                        android:layout_height="@dimen/main_menu_buttons_height"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginLeft="@dimen/main_menu_buttons_marginleft"
+                        android:layout_marginRight="@dimen/main_menu_buttons_marginright"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="40dp"
+                            android:background="@drawable/search_client" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chercher un client"
+                            android:textColor="#FFF"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/main_menu_hlayout_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/searchdev"
+                        android:layout_width="@dimen/main_menu_buttons_width"
+                        android:layout_height="@dimen/main_menu_buttons_height"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginLeft="@dimen/main_menu_buttons_marginleft"
+                        android:layout_marginRight="@dimen/main_menu_buttons_marginright"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="40dp"
+                            android:background="@drawable/search_devis" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chercher un devis"
+                            android:textColor="#FFF"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/main_menu_hlayout_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
                         android:id="@+id/createcust"
                         android:layout_width="@dimen/main_menu_buttons_width"
                         android:layout_height="@dimen/main_menu_buttons_height"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
                         android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
-                        android:background="#13b586"
-                        android:text="Ajouter un client"
-                        android:textColor="#fff"
-                        android:textSize="13dp" />
+                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginLeft="@dimen/main_menu_buttons_marginleft"
+                        android:layout_marginRight="@dimen/main_menu_buttons_marginright"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="40dp"
+                            android:background="@drawable/new_client" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ajouter un client"
+                            android:textColor="#FFF"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/main_menu_hlayout_width"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:focusableInTouchMode="true"
                     android:orientation="vertical">
 
-                    <Button
+                    <LinearLayout
                         android:id="@+id/createdev"
                         android:layout_width="@dimen/main_menu_buttons_width"
                         android:layout_height="@dimen/main_menu_buttons_height"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
                         android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
-                        android:background="#13b586"
-                        android:text="Créer un devis"
-                        android:textColor="#fff"
-                        android:textSize="13dp" />
+                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginLeft="@dimen/main_menu_buttons_marginleft"
+                        android:layout_marginRight="@dimen/main_menu_buttons_marginright"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="40dp"
+                            android:background="@drawable/new_devis" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Créer un devis"
+                            android:textColor="#FFF"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
+
 
             </LinearLayout>
 
@@ -171,23 +259,83 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/main_menu_hlayout_width"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:focusableInTouchMode="true"
                     android:orientation="vertical">
 
-                    <Button
+                    <LinearLayout
                         android:id="@+id/sync"
-                        android:layout_width="@dimen/main_menu_buttons_width"
-                        android:layout_height="@dimen/main_menu_buttons_height"
+                        android:layout_width="400dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
                         android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
-                        android:background="#13b586"
-                        android:text="Synchroniser"
-                        android:textColor="#fff"
-                        android:textSize="13dp" />
+                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginLeft="@dimen/main_menu_buttons_marginleft"
+                        android:layout_marginRight="@dimen/main_menu_buttons_marginright"
+                        android:background="@color/colorPrimary"
+                        android:orientation="horizontal"
+                        android:clickable="true">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="40dp"
+                                android:background="@drawable/sync" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="40dp"
+                                android:text="Synchroniser"
+                                android:textColor="#FFF"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/main_menu_hlayout_width"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/params"
+                        android:layout_width="400dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginTop="@dimen/main_menu_buttons_margintop"
+                        android:layout_marginLeft="@dimen/main_menu_buttons_marginleft"
+                        android:layout_marginRight="@dimen/main_menu_buttons_marginright"
+                        android:background="@color/colorPrimary"
+                        android:orientation="horizontal"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="40dp"
+                            android:background="@drawable/settings" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:text="Paramètres"
+                            android:textColor="#FFF"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -196,9 +344,5 @@
 
         </LinearLayout>
 
-
-    </LinearLayout>
-
-
-
+</LinearLayout>
 </RelativeLayout>

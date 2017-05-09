@@ -17,7 +17,7 @@
             android:layout_width="fill_parent"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
-            android:background="#13b586"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal">
 
             <ImageView
@@ -100,7 +100,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="@dimen/main_menu_buttons_margintop"
                         android:layout_marginTop="@dimen/main_menu_buttons_margintop"
-                        android:background="#13b586"
+                        android:background="@color/colorPrimary"
                         android:text="Chercher un devis"
                         android:textColor="#fff"
                         android:textSize="13dp" />

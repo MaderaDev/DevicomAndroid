@@ -16,13 +16,13 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="48dp"
-            android:background="#13b586"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal"
             android:layout_alignParentTop="true">
 
             <ImageView android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/app_icon"
+                android:background="@drawable/ic_launcher"
                 android:layout_marginLeft="10dp"/>
 
 
@@ -70,7 +70,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="30dp"
                 android:background="#f3f3f3"
-                android:hint="Username"
+                android:hint="Adresse e-mail"
                 android:singleLine="true"
                 android:paddingLeft="5dp" />
 
@@ -80,7 +80,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:background="#f3f3f3"
-                android:hint="password"
+                android:hint="Mot de passe"
                 android:inputType="textPassword"
                 android:paddingLeft="5dp" />
 
@@ -96,7 +96,7 @@
                     android:id="@+id/forgot_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Forgot Password?"
+                    android:text="Identifiants oubliés ?"
                     android:textColor="#000000"
                     android:textSize="16dp"
                     android:textStyle="bold"
@@ -111,21 +111,10 @@
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:background="#13b586"
-                android:text="submit"
+                android:background="@color/colorPrimary"
+                android:text="Connexion"
                 android:textColor="#fff"
                 android:textSize="13dp" />
-
-            <!--<EditText
-                android:id="@+id/response"
-                android:layout_width="fill_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="0dp"
-                android:background="#f3f3f3"
-                android:hint="response"
-                android:paddingLeft="5dp" />-->
 
 
         </LinearLayout>

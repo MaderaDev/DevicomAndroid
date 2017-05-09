@@ -21,7 +21,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
                 android:layout_alignParentTop="true"
-                android:background="#13b586"
+                android:background="@color/colorPrimary"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -76,7 +76,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="30dp"
-                    android:hint="Devis : #265"
+                    android:hint="Devis : Nouveau"
                     android:textColor="#000000"
                     android:paddingLeft="5dp" />
 
@@ -161,6 +161,28 @@
                             android:hint="Aucun"
                             android:paddingLeft="5dp" />
 
+                        <TextView
+                            android:id="@+id/text4"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center_vertical"
+                            android:text="Montant estimé"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/price"
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:background="#f3f3f3"
+                            android:hint="0€"
+                            android:paddingLeft="5dp" />
+
 
                         <LinearLayout
                             android:layout_width="fill_parent"
@@ -181,7 +203,7 @@
                                     android:id="@+id/submit"
                                     android:layout_width="200dp"
                                     android:layout_height="40dp"
-                                    android:background="#13b586"
+                                    android:background="@color/colorPrimary"
                                     android:text="Enregistrer"
                                     android:textColor="#fff"
                                     android:textSize="13dp" />
@@ -200,7 +222,7 @@
                                     android:id="@+id/cancel"
                                     android:layout_width="200dp"
                                     android:layout_height="40dp"
-                                    android:background="#13b586"
+                                    android:background="@color/colorPrimary"
                                     android:text="Annuler"
                                     android:textColor="#fff"
                                     android:textSize="13dp" />
@@ -269,7 +291,7 @@
                                     android:layout_width="190dp"
                                     android:layout_height="40dp"
                                     android:layout_gravity="center"
-                                    android:background="#13b586"
+                                    android:background="@color/colorPrimary"
                                     android:text="Gammes"
                                     android:textColor="#fff"
                                     android:textSize="13dp" />
@@ -329,7 +351,7 @@
                                     android:layout_width="190dp"
                                     android:layout_height="40dp"
                                     android:layout_gravity="center"
-                                    android:background="#13b586"
+                                    android:background="@color/colorPrimary"
                                     android:text="Lignes de produit"
                                     android:textColor="#fff"
                                     android:textSize="13dp" />
@@ -389,15 +411,87 @@
                                     android:layout_width="190dp"
                                     android:layout_height="40dp"
                                     android:layout_gravity="center"
-                                    android:background="#13b586"
+                                    android:background="@color/colorPrimary"
                                     android:text="Références"
                                     android:textColor="#fff"
                                     android:textSize="13dp" />
 
                             </LinearLayout>
 
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.08"
+                            android:orientation="horizontal">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/status"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="30dp"
+                                    android:gravity="center_vertical"
+                                    android:text="Status du devis"
+                                    android:textColor="#000000"
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/sref"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="#f3f3f3"
+                                    android:hint="Aucune"
+                                    android:paddingLeft="5dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="0.5"
+                                android:orientation="vertical"
+                                android:weightSum="1">
+
+                                <TextView
+                                    android:id="@+id/state"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="30dp"
+                                    android:gravity="center_vertical"
+                                    android:text="Etape de construction"
+                                    android:textColor="#000000"
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/sref"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="#f3f3f3"
+                                    android:hint="Aucune"
+                                    android:paddingLeft="5dp" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
