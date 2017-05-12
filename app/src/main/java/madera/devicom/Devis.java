@@ -1,43 +1,31 @@
 package madera.devicom;
 
-import java.util.Date;
-
 public class Devis {
 
     /*public String city;
     public int postalCode;
     public String address;*/
-    public Date createDate;
-    public Date updateDate;
-    public Client client;
+    public String createDate;
+    public String updateDate;
+    public String client;
+    public String montant;
+    public String address;
+    public String gamme;
+    public String lignerod;
+    public String reference;
+    public String status;
+    public String step;
 
-    public Gamme gamme;
-    public LigneProd ligneProd;
-    public Ref reference;
-
-    public Devis(/*String city, int postalCode, String address, */Date createDate, Date updateDate, String client){
-        /*this.city = city;
-        this.postalCode = postalCode;
-        this.address = address;*/
+    public Devis(String address, String createDate, String updateDate, String client, String montant, String gamme, String ligneprod, String ref, String status, String step){
+        this.address = address;
         this.createDate = createDate;
         this.updateDate=updateDate;
-
-        //search client in database
-        //this.client = client;
-
-
-    }
-
-    public void addGamme(Gamme gamme){
+        this.client = client;
+        this.montant = montant;
         this.gamme = gamme;
-    }
-
-    public void addLigneProd(LigneProd ligneprod) {
-        this.ligneProd = ligneprod;
-    }
-
-    public void addRef (Ref ref) {
+        this.lignerod = ligneprod;
         this.reference = ref;
+        this.status = status;
+        this.step = step;
     }
-
 }

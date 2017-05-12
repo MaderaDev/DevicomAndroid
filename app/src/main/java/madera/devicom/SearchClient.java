@@ -1,13 +1,16 @@
 package madera.devicom;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +30,6 @@ public class SearchClient extends Activity implements FetchDataFromApi{
     List<Map<String, String>> displayedClients;
     TextView number;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,15 @@ public class SearchClient extends Activity implements FetchDataFromApi{
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.search_client);
+
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchClient.this, MainMenu.class));
+                finish();
+            }
+        });
 
         this.lv = (ListView) findViewById(R.id.found_list);
         final Button btn = (Button) findViewById(R.id.search_button);
@@ -50,8 +61,8 @@ public class SearchClient extends Activity implements FetchDataFromApi{
             public void onClick(View v) {
                 searchparameters = parameters.getText().toString();
                 //Hide keyboard
-                /*InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput (InputMethodManager.SHOW_FORCED, 0);*/
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput (InputMethodManager.SHOW_FORCED, 0);
 
                 searchClient(searchparameters);
             }
@@ -73,7 +84,24 @@ public class SearchClient extends Activity implements FetchDataFromApi{
         System.out.println(code);
         data = result;
         sortClients();
+        checkAllFields(this.clientsretrieved);
         renderData(this.clientsretrieved);
+    }
+
+    private void checkAllFields( List<Map<String, String>> toverif){
+        String[] fields = {"id", "civilite", "prenom", "nom", "adresse", "ville", "codepostal", "email", "telephone"};
+        for (int i=0; i<toverif.size(); i++) {
+            for (int j=0; j<fields.length; j++) {
+
+                try {
+                    if (toverif.get(i).get(fields[j]).equals(null)) {
+                        this.clientsretrieved.get(i).put(fields[j], "Non renseigné");
+                    }
+                }catch(Exception e){
+                    this.clientsretrieved.get(i).put(fields[j], "Non renseigné");
+                }
+            }
+        }
     }
 
     private void sortClients(){
@@ -157,16 +185,29 @@ public class SearchClient extends Activity implements FetchDataFromApi{
             System.out.println(displayedClients.get(Integer.parseInt(index.toString())));
             //Toast.makeText(getApplicationContext(), "clicked button " + index, Toast.LENGTH_SHORT).show();
 
+            //List<Map<String, String>> displayedClients;
+            int i = Integer.parseInt(index.toString());
+
             Intent myIntent = new Intent(SearchClient.this, NewClient.class);
-            myIntent.putExtra("id", displayedClients.get(Integer.parseInt(index.toString())).get("id"));
-            myIntent.putExtra("civilite", displayedClients.get(Integer.parseInt(index.toString())).get("civilite"));
-            myIntent.putExtra("nom", displayedClients.get(Integer.parseInt(index.toString())).get("nom"));
-            myIntent.putExtra("prenom", displayedClients.get(Integer.parseInt(index.toString())).get("prenom"));
-            myIntent.putExtra("adresse", displayedClients.get(Integer.parseInt(index.toString())).get("adresse"));
-            myIntent.putExtra("codepostal", displayedClients.get(Integer.parseInt(index.toString())).get("codepostal"));
-            myIntent.putExtra("ville", displayedClients.get(Integer.parseInt(index.toString())).get("ville"));
-            myIntent.putExtra("email", displayedClients.get(Integer.parseInt(index.toString())).get("email"));
-            myIntent.putExtra("telephone", displayedClients.get(Integer.parseInt(index.toString())).get("telephone"));
+            myIntent.putExtra("id", displayedClients.get(i).get("id"));
+            myIntent.putExtra("civilite", displayedClients.get(i).get("civilite"));
+            myIntent.putExtra("nom", displayedClients.get(i).get("nom"));
+            myIntent.putExtra("prenom", displayedClients.get(i).get("prenom"));
+            myIntent.putExtra("adresse", displayedClients.get(i).get("adresse"));
+            myIntent.putExtra("codepostal", displayedClients.get(i).get("codepostal"));
+            myIntent.putExtra("ville", displayedClients.get(i).get("ville"));
+            myIntent.putExtra("email", displayedClients.get(i).get("email"));
+            myIntent.putExtra("telephone", displayedClients.get(i).get("telephone"));
+
+            System.out.println(displayedClients.get(i).get("id"));
+            System.out.println(displayedClients.get(i).get("civilite"));
+            System.out.println(displayedClients.get(i).get("nom"));
+            System.out.println(displayedClients.get(i).get("prenom"));
+            System.out.println(displayedClients.get(i).get("adresse"));
+            System.out.println(displayedClients.get(i).get("codepostal"));
+            System.out.println(displayedClients.get(i).get("ville"));
+            System.out.println(displayedClients.get(i).get("email"));
+            System.out.println(displayedClients.get(i).get("telephone"));
 
             startActivity(myIntent);
         }

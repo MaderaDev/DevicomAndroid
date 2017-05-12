@@ -14,35 +14,64 @@
         android:layout_alignParentStart="true">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="48dp"
-            android:layout_alignParentTop="true"
-            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/bandeau"
             android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/app_icon" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginLeft="25dp"
-                android:text="Chercher un devis"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="48dp"
-                android:gravity="right"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
                 android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/back" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:text="Menu principal"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:text="Recherche d'un devis"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/ic_launcher" />
             </LinearLayout>
         </LinearLayout>
 
@@ -72,7 +101,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/search"
+                        android:id="@+id/searchdevisparams"
                         android:layout_width="700dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center_horizontal"
@@ -80,7 +109,7 @@
                         android:layout_marginRight="30dp"
                         android:layout_marginTop="30dp"
                         android:background="#f3f3f3"
-                        android:hint="Client, Ville, Identifiant, Date..."
+                        android:hint="Client, Ville, Identifiant..."
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -109,27 +138,31 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/numberresults"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16dp"
 
+                />
 
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-
-
-
-
-            </LinearLayout>
-
-
-
+                </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
 
-
     </LinearLayout>
-
-
 
 </RelativeLayout>

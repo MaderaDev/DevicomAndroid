@@ -1,10 +1,13 @@
 package madera.devicom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Synchronisation extends AppCompatActivity implements FetchDataFromApi {
@@ -23,8 +26,16 @@ public class Synchronisation extends AppCompatActivity implements FetchDataFromA
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.synchronisation);
 
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Synchronisation.this, MainMenu.class));
+            }
+        });
 
-        TextView online = (TextView)findViewById(R.id.online);
+
+        /*TextView online = (TextView)findViewById(R.id.online);
         online.setText("Connecté à Madera");
 
         // TODO: cette vérification ne fonctionne pas !!
@@ -33,7 +44,7 @@ public class Synchronisation extends AppCompatActivity implements FetchDataFromA
         } catch (Exception e) {
             online.setText("Connection à Madera impossible");
             online.setTextColor(Integer.parseInt("#ff0000"));
-        }
+        }*/
 
         new ApiRequest(this, "").execute();
     }
@@ -47,6 +58,6 @@ public class Synchronisation extends AppCompatActivity implements FetchDataFromA
         if (data == "") {
             data = "Impossible de joindre le serveur de Madera";
         }
-        responseView.setText(data);
+        //responseView.setText(data);
     }
 }

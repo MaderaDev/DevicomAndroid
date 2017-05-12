@@ -1,0 +1,240 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/bandeau"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/back" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:text="Edition d'un devis"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:text="Gammes"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/ic_launcher" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:paddingTop="80dp"
+            android:background="@drawable/greybackground"
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imglp1"
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/lp_base_contemporain" />
+
+                <TextView
+                    android:id="@+id/textlp1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Plain pied contemporain"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imglp2"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/lp_base_moderne" />
+
+                <TextView
+                    android:id="@+id/textlp2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Plain pied moderne"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imglp3"
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/lp_base_pierre" />
+
+                <TextView
+                    android:id="@+id/textlp3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Plain pied pierres"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imglp4"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/lp_base_verdure" />
+
+                <TextView
+                    android:id="@+id/textlp4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Plain pied toit verdure"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imglp5"
+                    android:layout_width="fill_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/lp_etage_contemporain" />
+
+                <TextView
+                    android:id="@+id/textlp5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Etage contemporain"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imglp6"
+                    android:layout_width="fill_parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/lp_etage_moderne" />
+
+                <TextView
+                    android:id="@+id/textlp6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Etage moderne"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

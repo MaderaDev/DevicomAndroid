@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainMenu extends Activity {
 
@@ -57,7 +59,26 @@ public class MainMenu extends Activity {
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainMenu.this, Synchronisation.class));
+                //startActivity(new Intent(MainMenu.this, Synchronisation.class));
+                Toast.makeText(MainMenu.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        LinearLayout params = (LinearLayout) findViewById(R.id.params);
+        params.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(MainMenu.this, Synchronisation.class));
+                Toast.makeText(MainMenu.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenu.this, Login.class));
+                finish();
             }
         });
     }

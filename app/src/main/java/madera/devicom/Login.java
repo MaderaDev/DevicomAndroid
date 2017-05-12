@@ -26,8 +26,6 @@ public class Login extends Activity implements FetchDataFromApi{
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.login);
 
-        System.out.println("HELLO WORLD");
-
         TextView passwordvalue = (TextView) findViewById(R.id.password);
 
 
@@ -36,7 +34,7 @@ public class Login extends Activity implements FetchDataFromApi{
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(Login.this, "TODO feature", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -64,9 +62,10 @@ public class Login extends Activity implements FetchDataFromApi{
         //postDataParams.put("email", username);
         //postDataParams.put("password", password);
 
-        System.out.println("SENDING LOGIN");
 
         new HttpPost(this, "auth", postDataParams).execute();
+        //for dev
+        startActivity(new Intent(Login.this, MainMenu.class));
     }
 
     public void fetchDataCallback(int code, String result) {

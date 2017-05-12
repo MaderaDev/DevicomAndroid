@@ -1,5 +1,8 @@
 package madera.devicom;
 
+import org.json.JSONArray;
+import org.json.simple.parser.JSONParser;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,6 +19,13 @@ public class Utilities {
         String patternLVL2 = ",";
         String patternLVL3 = ":";
 
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(s);
+        JSONArray array = (JSONArray)obj;
+
+        //in.replaceAll("\"", "");
+
         // in = data
         // before = nb chars to remove before data
         // after = nb chars to remove after data
@@ -29,7 +39,7 @@ public class Utilities {
 
         int size = infosClient.size();
        // Map[] myarray = new String[size];
-        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        List<Map<String, String>> list = new ArrayList<>();
         String key;
         String value;
         for(int i = 0; i < size; i++){
@@ -39,11 +49,13 @@ public class Utilities {
             for(int j = 0; j < oneClient.size(); j++){
                 //System.out.println(oneClient.get(j));
                 List<String> info = Arrays.asList(oneClient.get(j).split(patternLVL3));
+                System.out.println(info.get(0) + " : " + info.get(1));
                 key = info.get(0).replace("\"", "").toString();
                 value = info.get(1).replace("\"", "").toString();
+
                 infos.put(key, value);
             }
-           // System.out.println(infos);
+           System.out.println(infos);
             list.add(infos);
         }
         //System.out.println(list);

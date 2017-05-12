@@ -19,36 +19,73 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true">
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="48dp"
-                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
                 android:background="@color/colorPrimary"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/select" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginLeft="25dp"
-                    android:text="Nouveau client"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="48dp"
-                    android:gravity="right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusableInTouchMode="true"
                     android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/back" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="25dp"
+                        android:text="Menu principal"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:text="Edition d'un client"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_gravity="right"
+                        android:background="@drawable/ic_launcher" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -60,6 +97,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/mainview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -71,16 +109,20 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <EditText
-                    android:id="@+id/iddevis"
+                <TextView
+                    android:id="@+id/idclient"
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="30dp"
-                    android:hint="Client : Nouveau"
+                    android:paddingLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Client : Nouveau"
                     android:textColor="#000000"
-                    android:paddingLeft="5dp" />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -139,7 +181,9 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="Prénom"
-                            android:paddingLeft="5dp" />
+                            android:nextFocusForward="@+id/name"
+                            android:paddingLeft="5dp"
+                            android:singleLine="true" />
 
                         <TextView
                             android:layout_width="fill_parent"
@@ -160,7 +204,9 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="Nom"
-                            android:paddingLeft="5dp" />
+                            android:nextFocusDown="@+id/email"
+                            android:paddingLeft="5dp"
+                            android:singleLine="true" />
 
                         <TextView
                             android:layout_width="fill_parent"
@@ -181,6 +227,8 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="E-Mail"
+                            android:inputType="textEmailAddress"
+                            android:nextFocusDown="@+id/phone"
                             android:paddingLeft="5dp" />
 
                         <TextView
@@ -202,6 +250,8 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="Téléphone"
+                            android:inputType="phone"
+                            android:nextFocusDown="@+id/address"
                             android:paddingLeft="5dp" />
 
                     </LinearLayout>
@@ -219,7 +269,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:layout_marginRight="30dp"
-                            android:layout_marginTop="30dp"
                             android:hint="J'autorise Madera à m'envoyer des offres commerciales et le catalogue de nouveautés sur mon adresse e-mail" />
 
                         <TextView
@@ -241,7 +290,9 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="Adresse"
-                            android:paddingLeft="5dp" />
+                            android:nextFocusDown="@+id/postal"
+                            android:paddingLeft="5dp"
+                            android:singleLine="true" />
 
                         <TextView
                             android:layout_width="fill_parent"
@@ -262,6 +313,8 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="Code postal"
+                            android:inputType="phone"
+                            android:nextFocusDown="@+id/city"
                             android:paddingLeft="5dp" />
 
                         <TextView
@@ -283,19 +336,64 @@
                             android:layout_marginRight="30dp"
                             android:background="#f3f3f3"
                             android:hint="Ville"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:imeOptions="actionDone"
+                            android:singleLine="true" />
 
-
-                        <Button
-                            android:id="@+id/submit"
-                            android:layout_width="190dp"
-                            android:layout_height="38dp"
-                            android:layout_gravity="center_horizontal"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
                             android:layout_marginTop="30dp"
-                            android:background="@color/colorPrimary"
-                            android:text="Enregistrer"
-                            android:textColor="#fff"
-                            android:textSize="13dp" />
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <Button
+                                android:id="@+id/submit"
+                                android:layout_width="190dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="100dp"
+                                android:layout_marginRight="30dp"
+                                android:layout_marginTop="30dp"
+                                android:background="@color/colorPrimary"
+                                android:text="Enregistrer"
+                                android:textColor="#fff"
+                                android:textSize="13dp"
+                                android:layout_weight="0.30" />
+
+                            <Button
+                                android:id="@+id/delete"
+                                android:layout_width="190dp"
+                                android:layout_height="38dp"
+                                android:layout_gravity="center_horizontal"
+
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="30dp"
+                                android:background="#ff0000"
+                                android:text="Supprimer"
+                                android:textColor="#fff"
+                                android:textSize="13dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="30dp"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/newdevis"
+                                android:layout_width="190dp"
+                                android:layout_height="38dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="100dp"
+                                android:layout_marginRight="30dp"
+                                android:background="@color/colorPrimary"
+                                android:text="Nouveau devis"
+                                android:textColor="#fff"
+                                android:textSize="13dp" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -329,6 +427,7 @@
 
             </LinearLayout>
 
+        </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
