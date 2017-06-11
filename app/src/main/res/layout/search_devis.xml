@@ -72,7 +72,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/search"
+                        android:id="@+id/searchdevis"
                         android:layout_width="700dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center_horizontal"
@@ -80,7 +80,7 @@
                         android:layout_marginRight="30dp"
                         android:layout_marginTop="30dp"
                         android:background="#f3f3f3"
-                        android:hint="Client, Ville, Identifiant, Date..."
+                        android:hint="#Devis, status, date..."
                         android:paddingLeft="5dp" />
 
                 </LinearLayout>
@@ -94,7 +94,7 @@
 
 
                     <Button
-                        android:id="@+id/searchdev"
+                        android:id="@+id/search_button"
                         android:layout_width="@dimen/main_menu_buttons_width"
                         android:layout_height="40dp"
                         android:layout_gravity="center_horizontal"
@@ -109,27 +109,26 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/numberresults"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                />
 
-
-
-
-
-
-
-            </LinearLayout>
-
-
-
-
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
-
-
     </LinearLayout>
-
-
-
 </RelativeLayout>

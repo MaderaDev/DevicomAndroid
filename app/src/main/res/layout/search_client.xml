@@ -132,23 +132,6 @@
 
                 </LinearLayout>
             </ScrollView>
-
-           <!-- <LinearLayout
-                android:id="@+id/search_results"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal">
-
-                <ListView
-                    android:id="@+id/found_list"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:drawSelectorOnTop="false"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
-                    />
-
-            </LinearLayout>-->
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -169,7 +169,6 @@ public class SearchClient extends Activity implements FetchDataFromApi{
                 System.out.println(displayedClients.getJSONObject(index));
 
                 Intent myIntent = new Intent(SearchClient.this, NewClient.class);
-                myIntent.putExtra("id", displayedClients.getJSONObject(index).getString("nom"));
                 myIntent.putExtra("id", displayedClients.getJSONObject(index).getString("id"));
                 myIntent.putExtra("civilite", displayedClients.getJSONObject(index).getString("civilite"));
                 myIntent.putExtra("nom", displayedClients.getJSONObject(index).getString("nom"));
@@ -187,7 +186,4 @@ public class SearchClient extends Activity implements FetchDataFromApi{
 
         }
     };
-
-
-
 }

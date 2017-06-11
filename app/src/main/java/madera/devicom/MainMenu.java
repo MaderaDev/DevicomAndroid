@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainMenu extends Activity {
 
@@ -57,7 +58,17 @@ public class MainMenu extends Activity {
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainMenu.this, Synchronisation.class));
+                Toast.makeText(MainMenu.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(MainMenu.this, Synchronisation.class));
+            }
+        });
+
+        LinearLayout params = (LinearLayout) findViewById(R.id.params);
+        params.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainMenu.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(MainMenu.this, Synchronisation.class));
             }
         });
     }
