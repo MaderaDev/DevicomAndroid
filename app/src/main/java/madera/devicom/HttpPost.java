@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class HttpPost extends AsyncTask<Void, Void, String> {
 
     //private String apiUrl = "http://10.0.2.2:8000/api/";
-    private String apiUrl = "http://192.168.43.6:8000/api/";
+    private String apiUrl = "http://maderadev.herokuapp.com/";
 
     String apiDestination;
     FetchDataFromApi callbackInterface;

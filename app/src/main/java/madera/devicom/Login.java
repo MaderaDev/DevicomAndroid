@@ -66,7 +66,7 @@ public class Login extends Activity implements FetchDataFromApi{
 
         System.out.println("SENDING LOGIN");
 
-        new HttpPost(this, "auth", postDataParams).execute();
+        new HttpPost(this, "login", postDataParams).execute();
     }
 
     public void fetchDataCallback(int code, String result) {
