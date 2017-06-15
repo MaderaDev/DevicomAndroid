@@ -63,7 +63,7 @@ public class Ref extends Activity{
 
         final ImageView ilp1 = (ImageView) findViewById(R.id.imglp1);
         ImageView ilp2 = (ImageView) findViewById(R.id.imglp3);
-        ImageView ilp3 = (ImageView) findViewById(R.id.imglp5);
+        final ImageView ilp3 = (ImageView) findViewById(R.id.imglp5);
         ImageView ilp4 = (ImageView) findViewById(R.id.imglp2);
         ImageView ilp5 = (ImageView) findViewById(R.id.imglp4);
         ImageView ilp6 = (ImageView) findViewById(R.id.imglp6);
@@ -135,8 +135,6 @@ public class Ref extends Activity{
             @Override
             public void onClick(View v) {
                 setReference("Référence 1");
-                /*largeimage.setBackground(ilp1.getBackground());
-                largeimage.setVisibility(View.VISIBLE);*/
             }
         });
         ilp2.setOnClickListener(new View.OnClickListener() {
@@ -148,7 +146,9 @@ public class Ref extends Activity{
         ilp3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setReference("Référence 3");
+                largeimage.setBackground(ilp3.getBackground());
+                largeimage.setVisibility(View.VISIBLE);
+                //setReference("Référence 3");
             }
         });
         ilp4.setOnClickListener(new View.OnClickListener() {

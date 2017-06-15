@@ -1,8 +1,5 @@
 package madera.devicom;
 
-import org.json.JSONArray;
-import org.json.simple.parser.JSONParser;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,13 +13,17 @@ public class Utilities {
         Integer before = 2;
         Integer after = 2;
         String patternLVL1 = "\\},\\{";
-        String patternLVL2 = ",";
-        String patternLVL3 = ":";
+        String patternLVL2 = "\",\"";
+        String patternLVL3 = "\":\"";
 
+        in = in.replace("id\":", "id\":\"");
+        in = in.replace(",\"nom", "\",\"nom");
+        in = in.replace("\\u00e8", "è");
+        in = in.replace("\\u00e9", "é");
 
-        JSONParser parser = new JSONParser();
+        /*JSONParser parser = new JSONParser();
         Object obj = parser.parse(s);
-        JSONArray array = (JSONArray)obj;
+        JSONArray array = (JSONArray)obj;*/
 
         //in.replaceAll("\"", "");
 

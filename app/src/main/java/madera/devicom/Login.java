@@ -57,15 +57,13 @@ public class Login extends Activity implements FetchDataFromApi{
         String password = passvalue.getText().toString();
 
         JSONObject postDataParams = new JSONObject();
-        postDataParams.put("email", "admin@madera.fr");
-        postDataParams.put("password", "madera");
-        //postDataParams.put("email", username);
-        //postDataParams.put("password", password);
+       // postDataParams.put("email", "admin@madera.fr");
+        //postDataParams.put("password", "madera");
+        postDataParams.put("email", username);
+        postDataParams.put("password", password);
 
 
         new HttpPost(this, "auth", postDataParams).execute();
-        //for dev
-        startActivity(new Intent(Login.this, MainMenu.class));
     }
 
     public void fetchDataCallback(int code, String result) {

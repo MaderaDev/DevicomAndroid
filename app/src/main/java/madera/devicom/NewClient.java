@@ -147,7 +147,10 @@ public class NewClient extends Activity  implements FetchDataFromApi{
                         createClient(newClient);
                         client_in_base = true;
                     }
-                    catch(Exception e){System.out.println(e);}
+                    catch(JSONException e){
+                        //System.out.println(e);
+                        e.printStackTrace();
+                    }
                 }
             }
         });

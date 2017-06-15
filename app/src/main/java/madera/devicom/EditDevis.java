@@ -179,7 +179,8 @@ public class EditDevis extends Activity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(EditDevis.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditDevis.this, "Devis enregistré", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EditDevis.this, MainMenu.class));
             }
         });
 
