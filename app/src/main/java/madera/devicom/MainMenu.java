@@ -59,8 +59,8 @@ public class MainMenu extends Activity {
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(MainMenu.this, Synchronisation.class));
                 Toast.makeText(MainMenu.this, "Fonction en développement", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(MainMenu.this, Synchronisation.class));
             }
         });
 

@@ -75,4 +75,34 @@ public class Utilities {
 
         return "toto";
     }*/
+
+    public String prettyChain(String[] array){
+        String newChain = "";
+
+        if (array[0] == "client"){
+            int namelenght = 30;
+            int surnamelenght = 20;
+            int citylenght = 20;
+            int postalcodelenght = 5;
+
+            newChain += array[1];
+            for(int i=0; i<namelenght-array[1].length(); i++){newChain += " ";}
+            newChain += "  " + array[2];
+            for(int i=0; i<surnamelenght-array[2].length(); i++){newChain += " ";}
+            newChain += array[3];
+            for(int i=0; i<citylenght-array[3].length(); i++){newChain += " ";}
+            newChain += array[4];
+        }
+        if (array[0] == "devis"){
+            int one = 10;
+            int two = 10;
+
+            newChain += array[1];
+            for(int i=0; i<one-array[1].length(); i++){newChain += " ";}
+            newChain += "  " + array[2];
+            for(int i=0; i<two-array[2].length(); i++){newChain += " ";}
+            newChain += array[3];
+        }
+        return newChain;
+    }
 }

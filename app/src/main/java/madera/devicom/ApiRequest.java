@@ -12,9 +12,7 @@ import java.net.URL;
 public class ApiRequest extends AsyncTask<Void, Void, String> {
 
     //private String apiUrl = "http://10.0.2.2:8000/api/";
-    //private String apiUrl = "http://192.168.1.2:8000/api/";
-    //private String apiUrl = "http://192.168.43.6:8000/api/";
-    private String apiUrl = "https://maderadev.herokuapp.com/api/";
+    private String apiUrl = "http://maderadev.herokuapp.com/api/";
 
     String apiDestination;
     FetchDataFromApi callbackInterface;
