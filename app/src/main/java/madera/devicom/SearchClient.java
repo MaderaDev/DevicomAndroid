@@ -3,6 +3,7 @@ package madera.devicom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -137,28 +138,72 @@ public class SearchClient extends Activity implements FetchDataFromApi{
 
         String temp = "";
         Button[] btnWord = new Button[clientsArray.length()];
+        LinearLayout[] oneclient = new LinearLayout[clientsArray.length()];
+        TextView[] infosclient = new TextView[4];
+
+        LinearLayout legends = new LinearLayout(this);
+        TextView[] legend = new TextView[4];
+
         linear = (LinearLayout) findViewById(R.id.buttons);
         linear.setOrientation(LinearLayout.VERTICAL);
         linear.removeAllViews();
+
+
 
         if(clientsArray.length() == 0) {
             this.number.setText("Nombre de résultats : 0");
         } else{
             this.number.setText("Nombre de résultats : " + clientsArray.length());
+
+            legends.setOrientation(LinearLayout.HORIZONTAL);
+            String[] legendtext = {"Nom", "Prénom", "Ville", "Code postal"};
+            for(int j=0; j < 4; j++){
+                legend[j] = new TextView(this);
+                legend[j].setText(legendtext[j]);
+                legend[j].setWidth(350);
+                legend[j].setTextSize(18);
+                legend[j].setTypeface(null, Typeface.BOLD);
+                legends.addView(legend[j]);
+            }
+            linear.addView(legends);
+
             for (int i = 0; i < clientsArray.length(); i++){
                 JSONObject thisclient = clientsArray.getJSONObject(i);
 
                 String[] clientsinfos = {"client", thisclient.getString("nom"), thisclient.getString("prenom"), thisclient.getString("ville"), thisclient.getString("codepostal")};
                 temp = utils.prettyChain(clientsinfos);
                 //temp = thisclient.getString("nom") + " - " + thisclient.getString("prenom") + " -> " + thisclient.getString("ville") + " (" + thisclient.getString("codepostal") + ")";
-                btnWord[i] = new Button(this);
+                /*btnWord[i] = new Button(this);
                 btnWord[i].setHeight(50);
                 btnWord[i].setWidth(WindowManager.LayoutParams.FILL_PARENT);
                 btnWord[i].setTag(i);
                 btnWord[i].setText(temp);
                 btnWord[i].setOnClickListener(btnClicked);
                 btnWord[i].setGravity(Gravity.LEFT | Gravity.CENTER);
-                linear.addView(btnWord[i]);
+                linear.addView(btnWord[i]);*/
+
+                oneclient[i] = new LinearLayout(this);
+                oneclient[i].setMinimumHeight(75);
+                oneclient[i].setMinimumWidth(WindowManager.LayoutParams.FILL_PARENT);
+                oneclient[i].setTag(i);
+                //oneclient[i].setText(temp);
+                oneclient[i].setOnClickListener(btnClicked);
+                oneclient[i].setGravity(Gravity.LEFT | Gravity.CENTER);
+
+                oneclient[i].setOrientation(LinearLayout.HORIZONTAL);
+                oneclient[i].removeAllViews();
+
+                TextView[] infoclient = new TextView[clientsinfos.length];
+                for(int j=1; j < clientsinfos.length; j++){
+                    infoclient[j] = new TextView(this);
+                    infoclient[j].setText(clientsinfos[j]);
+                    infoclient[j].setWidth(350);
+                    infoclient[j].setTextSize(15);
+                    oneclient[i].addView(infoclient[j]);
+                }
+
+                linear.addView(oneclient[i]);
+
 
                 clientsArray.getJSONObject(i).getString("nom");
             }

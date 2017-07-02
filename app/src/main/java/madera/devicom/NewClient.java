@@ -66,9 +66,9 @@ public class NewClient extends Activity  implements FetchDataFromApi{
             String clientemail = getIntent().getSerializableExtra("email").toString();
             String clienttelephone = getIntent().getSerializableExtra("telephone").toString();
 
-            if (clientcivilite == "monsieur"){
+            if (clientcivilite == "Monsieur"){
                 monsieur.setChecked(true);
-            } else if (clientcivilite == "madame"){
+            } else if (clientcivilite == "Madame"){
                 madame.setChecked(true);
             }
             idclient.setText("Client : #" + clientid);
@@ -99,8 +99,9 @@ public class NewClient extends Activity  implements FetchDataFromApi{
             public void onClick(View v) {
                 if (client_in_base == true) {
                     Intent myIntent = new Intent(NewClient.this, EditDevis.class);
-                    myIntent.putExtra("surname", vsurname.getText().toString());
-                    myIntent.putExtra("name", vname.getText().toString());
+                    myIntent.putExtra("id", "81");
+                    /*myIntent.putExtra("surname", vsurname.getText().toString());
+                    myIntent.putExtra("name", vname.getText().toString());*/
                     startActivity(myIntent);
                 } else{
                     Toast.makeText(NewClient.this, "Veuillez d'abord créer un client.", Toast.LENGTH_SHORT).show();
@@ -129,16 +130,16 @@ public class NewClient extends Activity  implements FetchDataFromApi{
                 int id = 1;
                 String sex = "";
                 if (madame.isChecked()) {
-                    sex = "madame";
+                    sex = "Madame";
                 } else if (monsieur.isChecked()) {
-                    sex = "monsieur";}
+                    sex = "Monsieur";}
                 //date
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
                 String formattedDate = df.format(c.getTime());
 
                 String creationDate = formattedDate;
-                String[] fields = {surname, name, phone, email, address, postal, city};
+                String[] fields = {sex, surname, name, phone, email, address, postal, city};
                 if (fieldsVerification(fields) == true){
                     //FOR dev
                     //Client newClient = new Client(id, sex, "vincent", "gargat", "0681352011", "vincent.toto@yopmail.fr", "4 chemin marceau", "38100", "Grenoble", creationDate);
@@ -203,7 +204,7 @@ public class NewClient extends Activity  implements FetchDataFromApi{
     private boolean fieldsVerification(String[] fields){
         boolean empty = false;
 
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < 8; i++) {
             if(fields[i].isEmpty()){
                 empty = true;
             }
@@ -217,7 +218,6 @@ public class NewClient extends Activity  implements FetchDataFromApi{
     }
 
     public void createClient(Client client) throws JSONException {
-        this.test = (TextView) findViewById(R.id.linked_devis);
 
         JSONObject postDataParams = new JSONObject();
         //postDataParams.put("id", client.id);
@@ -231,11 +231,12 @@ public class NewClient extends Activity  implements FetchDataFromApi{
         postDataParams.put("telephone", client.phone);
         //postDataParams.put("created_at", client.creationDate);
 
-        new HttpPost(this, "client", postDataParams).execute();
+        new HttpPost(this, "api/client", postDataParams).execute();
     }
 
     public void fetchDataCallback(int code, String result) {
         System.out.println(code);
+        System.out.println(result);
         //this.test.setText(result);
         Toast.makeText(NewClient.this, "Client enregistré", Toast.LENGTH_SHORT).show();
     }

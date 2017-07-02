@@ -11,10 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class EditDevis extends Activity {
+public class EditDevis extends Activity implements FetchDataFromApi{
 
     Calendar c = Calendar.getInstance();
     SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy");
@@ -84,10 +87,11 @@ public class EditDevis extends Activity {
 
 
         try { // When comming from NewClient
-            String oldsurname = getIntent().getSerializableExtra("surname").toString();
+            /*String oldsurname = getIntent().getSerializableExtra("surname").toString();
             String oldname = getIntent().getSerializableExtra("name").toString();
-            client = oldname + " " + oldsurname;
-            vclient.setText(client);
+            client = oldname + " " + oldsurname;*/
+            String idclient = getIntent().getSerializableExtra("id").toString();
+            vclient.setText(idclient);
         } catch(Exception e){
             System.out.println("EXCEPTION IN EDITDEVIS FROM NEWCLIENT " + e);
         }
@@ -161,11 +165,10 @@ public class EditDevis extends Activity {
             public void onClick(View v) {
                 getFields();
                 if(ligneprod.isEmpty()){
-                    Toast.makeText(EditDevis.this,"Veuillez d'abord choisir une ligne de produit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditDevis.this,"Veuillez d'abord choisir une gamme", Toast.LENGTH_SHORT).show();
                 }else{
                     startCustomActivity(Ref.class);
                 }
-
             }
         });
 
@@ -179,8 +182,13 @@ public class EditDevis extends Activity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(EditDevis.this, "Devis enregistré", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(EditDevis.this, MainMenu.class));
+                getFields();
+                Devis devis = new Devis(name, creation_date, update_date, client, "1", amount, gamme, ligneprod, ref, status, step);
+                try {
+                    createDevis(devis);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -213,6 +221,29 @@ public class EditDevis extends Activity {
         this.gamme = this.vgamme.getText().toString();
         this.ligneprod = this.vligneprod.getText().toString();
         this.ref = this.vref.getText().toString();
+    }
+
+    public void createDevis(Devis devis) throws JSONException {
+
+        JSONObject postDataParams = new JSONObject();
+        //postDataParams.put("id", client.id);
+        postDataParams.put("nom", devis.address);
+        postDataParams.put("montant", Integer.parseInt(devis.montant));
+        postDataParams.put("id_utilisateur", devis.idcom);
+        postDataParams.put("id_client", devis.client);
+        postDataParams.put("status", devis.status);
+        postDataParams.put("etape", "Devis_ouvert");
+        postDataParams.put("modules", devis.modules);
+        //postDataParams.put("created_at", client.creationDate);
+
+        new HttpPost(this, "api/devis", postDataParams).execute();
+    }
+
+    public void fetchDataCallback(int code, String result) {
+        System.out.println(code);
+        System.out.println(result);
+        //this.test.setText(result);
+        Toast.makeText(EditDevis.this, "Devis enregistré", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -3,6 +3,7 @@ package madera.devicom;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -54,7 +55,7 @@ public class SearchDevis extends Activity implements FetchDataFromApi {
         });
 
         this.lv = (ListView) findViewById(R.id.found_list);
-        final Button btn = (Button) findViewById(R.id.searchdev);
+        final Button btn = (Button) findViewById(R.id.search_button);
         final TextView parameters = (TextView)findViewById(R.id.searchdevisparams);
         this.number = (TextView)findViewById(R.id.numberresults);
 
@@ -129,9 +130,27 @@ public class SearchDevis extends Activity implements FetchDataFromApi {
 
         String temp = "";
         Button[] btnWord = new Button[devisArray.length()];
+
+        LinearLayout[] onedevis = new LinearLayout[devisArray.length()];
+        TextView[] infosdevis = new TextView[4];
         linear = (LinearLayout) findViewById(R.id.buttons);
         linear.setOrientation(LinearLayout.VERTICAL);
         linear.removeAllViews();
+
+        LinearLayout legends = new LinearLayout(this);
+        TextView[] legend = new TextView[4];
+
+        legends.setOrientation(LinearLayout.HORIZONTAL);
+        String[] legendtext = {"Adresse", "Code postal", "Status", "Etape"};
+        for(int j=0; j < 4; j++){
+            legend[j] = new TextView(this);
+            legend[j].setText(legendtext[j]);
+            legend[j].setWidth(350);
+            legend[j].setTextSize(18);
+            legend[j].setTypeface(null, Typeface.BOLD);
+            legends.addView(legend[j]);
+        }
+        linear.addView(legends);
 
         if(devisArray.length() == 0) {
             this.number.setText("Nombre de résultats : 0");
@@ -140,16 +159,37 @@ public class SearchDevis extends Activity implements FetchDataFromApi {
             for (int i = 0; i < devisArray.length(); i++){
                 JSONObject thisdevis = devisArray.getJSONObject(i);
 
-                String[] devisinfos = {"devis", thisdevis.getString("nom"), thisdevis.getString("montant"), thisdevis.getString("status")};
+                String[] devisinfos = {"devis", thisdevis.getString("nom"), thisdevis.getString("montant"), thisdevis.getString("status"), thisdevis.getString("etape")};
                 temp = utils.prettyChain(devisinfos);
-                btnWord[i] = new Button(this);
+                /*btnWord[i] = new Button(this);
                 btnWord[i].setHeight(50);
                 btnWord[i].setWidth(WindowManager.LayoutParams.FILL_PARENT);
                 btnWord[i].setTag(i);
                 btnWord[i].setText(temp);
                 btnWord[i].setOnClickListener(btnClicked);
-                btnWord[i].setGravity(Gravity.LEFT | Gravity.CENTER);
-                linear.addView(btnWord[i]);
+                btnWord[i].setGravity(Gravity.LEFT | Gravity.CENTER);*/
+
+                onedevis[i] = new LinearLayout(this);
+                onedevis[i].setMinimumHeight(75);
+                onedevis[i].setMinimumWidth(WindowManager.LayoutParams.FILL_PARENT);
+                onedevis[i].setTag(i);
+                //onedevis[i].setText(temp);
+                onedevis[i].setOnClickListener(btnClicked);
+                onedevis[i].setGravity(Gravity.LEFT | Gravity.CENTER);
+
+                onedevis[i].setOrientation(LinearLayout.HORIZONTAL);
+                onedevis[i].removeAllViews();
+
+                TextView[] infodevis = new TextView[devisinfos.length];
+                for(int j=1; j < devisinfos.length; j++){
+                    infodevis[j] = new TextView(this);
+                    infodevis[j].setText(devisinfos[j]);
+                    infodevis[j].setWidth(350);
+                    infodevis[j].setTextSize(15);
+                    onedevis[i].addView(infodevis[j]);
+                }
+
+                linear.addView(onedevis[i]);
 
                 devisArray.getJSONObject(i).getString("nom");
             }

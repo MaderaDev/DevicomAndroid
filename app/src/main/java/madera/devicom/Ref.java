@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class Ref extends Activity{
     String iddevis;
     String name;
@@ -173,6 +175,10 @@ public class Ref extends Activity{
     }
 
     private void setReference(String newref){
+
+        Random r = new Random();
+        int number = r.nextInt(1000000 - 100000) + 100000;
+        amount = Integer.toString(number);
 
         Intent myIntent = new Intent(Ref.this, EditDevis.class);
         myIntent.putExtra("id", iddevis);
